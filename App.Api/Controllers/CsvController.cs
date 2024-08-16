@@ -1,8 +1,10 @@
-﻿using App.Core.Csv.Queries;
+﻿using App.Core.Authenticate.Commands;
+using App.Core.CsvLog.Queries;
 using App.Core.User.Commands;
 using App.Core.User.Queries;
 using App.Infrastructure.Dtos;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace App.Api.Controllers;
@@ -19,6 +21,18 @@ public class CsvController : BaseController
 
     [HttpPost]
     public async Task<IActionResult> Upload(UploadCsvCommand command, CancellationToken cancellationToken = default)
+    {
+        var result = await _mediator.Send(command, cancellationToken).ConfigureAwait(false);
+        if (result.Success)
+        {
+            return Ok(result);
+        }
+
+        return BadRequest(result);
+    }
+
+    [HttpPost, AllowAnonymous]
+    public async Task<IActionResult> Authenticate(AuthenticateCommand command, CancellationToken cancellationToken = default)
     {
         var result = await _mediator.Send(command, cancellationToken).ConfigureAwait(false);
         if (result.Success)

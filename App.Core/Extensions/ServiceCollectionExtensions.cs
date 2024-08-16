@@ -1,5 +1,6 @@
 ﻿using App.Infrastructure;
 using App.Infrastructure.Repositories;
+using App.Infrastructure.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.HttpOverrides;
 using Microsoft.AspNetCore.Routing;
@@ -57,5 +58,6 @@ public static class ServiceCollectionExtensions
     public static void AddServicesAndRepository(this IServiceCollection services)
     {
         services.AddTransient(typeof(IRepository<>), typeof(Repository<>));
+        services.AddTransient<IJwtService, JwtService>();
     }
 }

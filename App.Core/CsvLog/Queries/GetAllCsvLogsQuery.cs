@@ -6,7 +6,7 @@ using App.Infrastructure.Transformers;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace App.Core.Csv.Queries;
+namespace App.Core.CsvLog.Queries;
 
 public class GetAllCsvLogsQuery : IRequest<IEnumerable<CsvLogDto>>
 {
