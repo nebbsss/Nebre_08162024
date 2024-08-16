@@ -12,6 +12,7 @@ public static class CsvLogTransformer
             DateCreated = entity.DateCreated,
             FileName = entity.FileName,
             RecordsProcessed = entity.RecordsProcessed,
+            TotalRecords = entity.TotalRecords,
             Duration = entity.Duration,
             DateUpdated = entity.DateUpdated,
             FileSize = entity.FileSize,

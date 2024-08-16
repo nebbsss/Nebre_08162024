@@ -15,6 +15,7 @@ public class CsvLogConfiguration : IEntityTypeConfiguration<CsvLogEntity>
 
         builder.Property(x => x.FileName).IsRequired().HasMaxLength(200);
         builder.Property(x => x.RecordsProcessed).IsRequired();
+        builder.Property(x => x.TotalRecords).IsRequired();
         builder.Property(x => x.Duration).IsRequired();
         builder.Property(x => x.FileSize).IsRequired();
         builder.Property(x => x.DateCreated).IsRequired();

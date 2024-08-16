@@ -32,4 +32,5 @@ app.UseForwardedHeaders();
 app.UseHttpsRedirection();
 app.UseRouting();
 app.MapControllers();
+app.RunPendingMigrations();
 app.Run();

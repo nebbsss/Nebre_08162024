@@ -71,11 +71,6 @@ public class CreateUserCommandHandler : BaseCommandHandler, IRequestHandler<Crea
         }
         catch (Exception ex)
         {
-            if (user is not null)
-            {
-                await _userRepository.Delete(user.UserId, cancellationToken).ConfigureAwait(false);
-            }
-
             LogError(ex, "Error create user");
 
             response.Success = false;
