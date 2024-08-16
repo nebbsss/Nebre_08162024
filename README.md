@@ -75,7 +75,7 @@ Migrations are automatically run when the application starts
  The application exclusively handles CSV files and logs specific data during CSV uploads
 
 | Name                | Description												|
-| :--------             :----------------------									|
+| :--------           |  :----------------------								|
 | `FileName`          | Filename of the uploaded CSV							|
 | `FileSize`          | Filesize of the file (in bytes)							|
 | `Duration`          | Processing time of the file (in milliseconds)			|
