@@ -4,7 +4,7 @@ using App.Infrastructure.Repositories;
 using MediatR;
 using Microsoft.Extensions.Logging;
 
-namespace App.Core.User;
+namespace App.Core.User.Commands;
 
 public class CreateUserCommand : IRequest<BaseResponse>
 {
@@ -38,7 +38,7 @@ public class CreateUserCommandHandler : BaseCommandHandler, IRequestHandler<Crea
 {
     private readonly IRepository<UserEntity> _userRepository;
     public CreateUserCommandHandler(
-        IRepository<UserEntity> userRepository, 
+        IRepository<UserEntity> userRepository,
         ILogger<CreateUserCommandHandler> logger) : base(logger)
     {
         ArgumentNullException.ThrowIfNull(nameof(userRepository));

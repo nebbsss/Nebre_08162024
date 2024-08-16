@@ -8,7 +8,7 @@ using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.Globalization;
 
-namespace App.Core.User;
+namespace App.Core.User.Commands;
 
 public class UploadCsvCommand : IRequest<BaseResponse>
 {
@@ -21,7 +21,7 @@ public class UploadCsvCommand : IRequest<BaseResponse>
             if (value == null) throw new ArgumentNullException(nameof(value));
             if (value.Length <= 0) throw new ArgumentNullException(nameof(value));
             if (!Path.GetExtension(value.FileName).Equals(".csv")) throw new InvalidOperationException("File is not a valid CSV");
-            
+
             _csv = value;
         }
     }
@@ -73,7 +73,10 @@ public class UploadCsvCommandHandler : BaseCommandHandler, IRequestHandler<Uploa
                 foreach (var record in records)
                 {
                     var result = await _mediator.Send(record, cancellationToken).ConfigureAwait(false);
-                    recordsProcessed = result.Success ? recordsProcessed++ : recordsProcessed;
+                    if (result.Success)
+                    {
+                        recordsProcessed += 1;
+                    }
                 }
             }
 

@@ -1,4 +1,7 @@
-﻿using App.Core.User;
+﻿using App.Core.Csv.Queries;
+using App.Core.User.Commands;
+using App.Core.User.Queries;
+using App.Infrastructure.Dtos;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,5 +27,17 @@ public class CsvController : BaseController
         }
 
         return BadRequest(result);
+    }
+
+    [HttpGet]
+    public async Task<IEnumerable<UserDto>> GetUsers(CancellationToken cancellationToken = default)
+    {
+        return await _mediator.Send(new GetAllUsersQuery(), cancellationToken).ConfigureAwait(false);
+    }
+
+    [HttpGet]
+    public async Task<IEnumerable<CsvLogDto>> GetCsvLogs(CancellationToken cancellationToken = default)
+    {
+        return await _mediator.Send(new GetAllCsvLogsQuery(), cancellationToken).ConfigureAwait(false);
     }
 }
