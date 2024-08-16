@@ -35,9 +35,9 @@ Migrations are automatically run when the application starts
 
 Use this API endpoint when uploading CSV file
 
-Endpoint: /api/csv/upload
-Parameter: CSV (The csv file)
-Method: POST
+#### Endpoint: /api/csv/upload
+#### Parameter: CSV (The csv file)
+#### Method: POST
 
 ### Authenticate
 
