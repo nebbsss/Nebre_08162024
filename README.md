@@ -27,3 +27,27 @@ Server=host.docker.internal,1433;Database=<DatabaseName>;Trusted_Connection=Fals
 ### Migrate
 
 Migrations are automatically run when the application starts
+
+
+# API
+
+### Upload CSV
+
+Use this API endpoint when uploading CSV file
+
+Endpoint: /api/csv/upload
+Parameter: CSV (The csv file)
+Method: POST
+
+### Authenticate
+
+Use this API endpoint when generating JWT Token
+
+Endpoint: /api/csv/authenticate
+Parameters:		
+	- UserName (Please use `admin`)
+	- Password (Please use `admin`)
+Method: POST
+
+
+
