@@ -74,14 +74,14 @@ Migrations are automatically run when the application starts
 ## File Processing
  The application exclusively handles CSV files and logs specific data during CSV uploads
 
-| Name      | Description             |
-| :--------  :---------------------- |
-| `FileName`  | Filename of the uploaded CSV |
-| `FileSize`  | Filesize of the file (in bytes) |
-| `Duration`  | Processing time of the file (in milliseconds) |
+| Name                | Description												|
+| :--------             :----------------------									|
+| `FileName`          | Filename of the uploaded CSV							|
+| `FileSize`          | Filesize of the file (in bytes)							|
+| `Duration`          | Processing time of the file (in milliseconds)			|
 | `RecordsProcessed`  | Number of records successfully inserted in the database |
-| `TotalRecords`  | Total number of rows available in the CSV file |
-| `DateCreated`  | Date and Time the CSV is uploaded in the application |
+| `TotalRecords`      | Total number of rows available in the CSV file			|
+| `DateCreated`       | Date and Time the CSV is uploaded in the application	|
 
 
 
